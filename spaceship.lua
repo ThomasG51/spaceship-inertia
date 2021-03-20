@@ -7,3 +7,6 @@ spaceship.velocityY = 0
 spaceship.image = love.graphics.newImage("images/ship.png")
 spaceship.width = spaceship.image:getWidth()
 spaceship.height = spaceship.image:getHeight()
+spaceship.engineImage = love.graphics.newImage('images/engine.png')
+spaceship.engineWidth = spaceship.engineImage:getWidth()
+spaceship.engineHeight = spaceship.engineImage:getHeight()
