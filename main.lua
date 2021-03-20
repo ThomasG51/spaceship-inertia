@@ -25,7 +25,15 @@ function love.update(dt)
   
   -- Spaceship deplacement
   if love.keyboard.isDown('up') then
-    -- spaceship.velocityY = spaceship.velocityY + 
+    spaceship.engineStatus = 'on'
+    
+    local inertiaX = math.cos(math.rad(spaceship.angle)) * (spaceship.speedX * dt) 
+    local inertiaY = math.sin(math.rad(spaceship.angle)) * (spaceship.speedY * dt) 
+    
+    spaceship.velocityX = spaceship.velocityX + inertiaX
+    spaceship.velocityY = spaceship.velocityY + inertiaY
+  else
+    spaceship.engineStatus = 'off'
   end
   
   if love.keyboard.isDown('right') then
@@ -43,9 +51,11 @@ function love.draw()
   
   -- Warning: To apply an angle in degrees you must use math.rad(), by default lua use radian to calculate the angle
   love.graphics.draw(spaceship.image, spaceship.positionX, spaceship.positionY, 
-    math.rad(spaceship.angle), 1, 1, spaceship.width / 2, spaceship.height / 2)
+    math.rad(spaceship.angle), 1.4, 1.4, spaceship.width / 2, spaceship.height / 2)
   
-  love.graphics.draw(spaceship.engineImage, spaceship.positionX, spaceship.positionY, 
-    math.rad(spaceship.angle), 1, 1, spaceship.engineWidth / 2, spaceship.engineHeight / 2)
+  if spaceship.engineStatus == 'on' then
+    love.graphics.draw(spaceship.engineImage, spaceship.positionX, spaceship.positionY, 
+      math.rad(spaceship.angle), 1.4, 1.4, spaceship.engineWidth / 2, spaceship.engineHeight / 2)
+  end
   
 end
