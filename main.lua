@@ -22,6 +22,16 @@ function love.update(dt)
   -- Spaceship Movement
   spaceship.positionX = spaceship.positionX + spaceship.velocityX
   spaceship.positionY = spaceship.positionY + spaceship.velocityY
+  
+  -- Spaceship deplacement
+  if love.keyboard.isDown('right') then
+    spaceship.angle = spaceship.angle + (90 * dt) -- The spaceship will rotate of 90° per seconde
+  end
+  
+  if love.keyboard.isDown('left') then
+    spaceship.angle = spaceship.angle - (90 * dt)
+  end
+
 end
 
 
