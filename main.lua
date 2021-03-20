@@ -16,6 +16,12 @@ end
 
 
 function love.update(dt)
+  -- Gravity
+  spaceship.velocityY = spaceship.velocityY + (0.6 * dt)
+  
+  -- Spaceship Movement
+  spaceship.positionX = spaceship.positionX + spaceship.velocityX
+  spaceship.positionY = spaceship.positionY + spaceship.velocityY
 end
 
 
