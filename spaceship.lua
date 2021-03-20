@@ -1,0 +1,9 @@
+spaceship = {}
+spaceship.positionX = 0
+spaceship.positionY = 0
+spaceship.angle = 0
+spaceship.velocityX = 0
+spaceship.velocityY = 0
+spaceship.image = love.graphics.newImage("images/ship.png")
+spaceship.width = spaceship.image:getWidth()
+spaceship.height = spaceship.image:getHeight()
